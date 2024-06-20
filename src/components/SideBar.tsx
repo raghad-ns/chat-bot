@@ -3,6 +3,7 @@ import { RiChatNewLine } from "react-icons/ri";
 import { BsList } from "react-icons/bs";
 import { TbProgressHelp } from "react-icons/tb";
 import { MdChatBubbleOutline } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 
@@ -41,10 +42,13 @@ const SideBar = () => {
         ]
     )
     const [searchTerm, setSearchTerm] = useState('');
+    useEffect(()=>{
+
+    },[searchTerm])
 
 
     return (
-        <div className="side-bar flex flex-col col-span-1 justify-start m-3 items-start text-myGray shadow-right-lg p-3" >
+        <div className="side-bar flex flex-col col-span-1 justify-start m-3 items-start text-myGray shadow-right-lg pr-3" >
             <div className="sideHeader pr-3 w-full h-10 flex justify-between">
                 <BsList size={30} onClick={() => setDisplaySidebar(!displaySideBar)} className="cursor-pointer" />
                 <div className="icons flex flex-row gap-x-2 justify-between">
@@ -54,7 +58,7 @@ const SideBar = () => {
             </div>
             {displaySideBar ? <div className={`sm:hidden md:block`}>
                 <div className='inline-flex w-fit items-center justify-center '>
-                    <div className="flex rounded-full bg-primary px-2 w-full max-w-[600px]">
+                    <div className="flex rounded-full bg-primary px-2 w-full max-w-[600px] pr-9">
                         <button className="self-center flex p-1 cursor-pointer bg-primary"> <svg width="30px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                             <g id="SVGRepo_bgCarrier" stroke-width="0" />
@@ -88,11 +92,142 @@ const SideBar = () => {
                     </div>
                 </div>
                 <div className="history flex flex-col text-lg pt-2 pl-3 m-3 overflow-y-scroll hide-scrollbar w-full">
-                    {
-                        DummyHistory.filter(record => record.trim().toLowerCase().includes(searchTerm.trim().toLowerCase())).map(record => {
-                            return (<div className="record mb-3 flex flex-row items-center gap-x-2"> <MdChatBubbleOutline /><span>{record}</span></div>)
-                        })
-                    }
+                    <div className="record flex flex-col gap-y-3 pb-5">
+                        <div className="group flex justify-between pr-5">
+                            <span className="group text-md text-md">Today</span>
+                            <MdOutlineKeyboardArrowDown />
+                        </div>
+                        {'Today chat 1'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Today chat 1</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Today chat 2'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Today chat 2</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Today chat 3'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Today chat 3</span>
+                            </div>
+                            : <span></span>
+                        }
+                    </div>
+                    <div className="record flex flex-col gap-y-3 pb-5">
+                        <div className="group flex justify-between pr-5">
+                            <span className="group text-md text-md">Yesterday</span>
+                            <MdOutlineKeyboardArrowDown />
+                        </div>
+                        {'Yesterday chat 1'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Yesterday chat 1</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Yesterday chat 2'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Yesterday chat 2</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Yesterday chat 3'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Yesterday chat 3</span>
+                            </div>
+                            : <span></span>
+                        }
+                    </div>
+                    <div className="record flex flex-col gap-y-3 pb-5">
+                        <div className="group flex justify-between pr-5">
+                            <span className="group text-md text-md">Last week</span>
+                            <MdOutlineKeyboardArrowDown />
+                        </div>
+                        {'Last week chat 1'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last week chat 1</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Last week chat 2'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last week chat 2</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Last week chat 3'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last week chat 3</span>
+                            </div>
+                            : <span></span>
+                        }
+                    </div>
+                    <div className="record flex flex-col gap-y-3 pb-5">
+                        <div className="group flex justify-between pr-5">
+                            <span className="group text-md text-md">Last month</span>
+                            <MdOutlineKeyboardArrowDown />
+                        </div>
+                        {'Last month chat 1'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last month chat 1</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Last month chat 2'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last month chat 2</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Last month chat 3'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Last month chat 3</span>
+                            </div>
+                            : <span></span>
+                        }
+                    </div>
+                    <div className="record flex flex-col gap-y-3 pb-5">
+                        <div className="group flex justify-between pr-5">
+                            <span className="group text-md text-md">Previous</span>
+                            <MdOutlineKeyboardArrowDown />
+                        </div>
+                        {'Previous chat 1'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Previous chat 1</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Previous chat 2'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Previous chat 2</span>
+                            </div>
+                            : <span></span>
+                        }
+                        {'Previous chat 3'.trim().toLowerCase().includes(searchTerm.toLowerCase().trim()) ?
+                            <div className="flex flex-row justify-start gap-y-3 items-center">
+                                <MdChatBubbleOutline />
+                                <span className="pl-3">Previous chat 3</span>
+                            </div>
+                            : <span></span>
+                        }
+                    </div>
+
                 </div>
             </div>
                 : <span></span>}
