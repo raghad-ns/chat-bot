@@ -1,0 +1,17 @@
+const DummyHistory = 
+[
+    "First chat",
+    "Second chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+    "First chat",
+]
+export {DummyHistory}
