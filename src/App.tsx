@@ -1,5 +1,8 @@
+
+
+import './App.css'
+import { SideBar } from './components'
 import React from "react";
-import "./App.css";
 import { ChatBox } from "./components";
 
 interface IChat {
@@ -23,6 +26,8 @@ const App = () => {
     };
     return (
         <div className="flex h-[100vh] w-[100vw]">
+        <SideBar />
+        
             <ChatBox
                 chat={chat}
                 text={text}
@@ -35,7 +40,9 @@ const App = () => {
                 handleSubmit={handleEnter}
             />
         </div>
-    );
-};
+      </div>
+    </>
+  )
+}
 
-export default App;
+export default App
