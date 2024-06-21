@@ -11,7 +11,7 @@ interface IChat {
 }
 
 const App = () => {
-    const test = () => {};
+    const test = () => { };
     const [text, setText] = React.useState("");
     const [chat, setChat] = React.useState<IChat[]>([]);
     const handleEnter = (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,8 +26,8 @@ const App = () => {
     };
     return (
         <div className="flex h-[100vh] w-[100vw]">
-        <SideBar />
-        
+            <SideBar />
+
             <ChatBox
                 chat={chat}
                 text={text}
@@ -40,9 +40,7 @@ const App = () => {
                 handleSubmit={handleEnter}
             />
         </div>
-      </div>
-    </>
-  )
+    )
 }
 
 export default App
